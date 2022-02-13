@@ -13,6 +13,22 @@
 				"url": "jdbc:sqlite:C:\\Users\\ekele\\Desktop\\JavaBootcampNotes\\SQL\\tek_systems\\.metadata\\sample-database-sqlite-1\\Chinook.db",
 				"type": "dev"
 			}
+		},
+		"mariaDB-17ef47b4ff0-5fb2be1c1a09c90e": {
+			"provider": "mysql",
+			"driver": "mariaDB",
+			"name": "localhost",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"url": "jdbc:mysql://localhost:3306/",
+				"home": "mysql_client",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
 		}
 	},
 	"connection-types": {
