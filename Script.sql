@@ -49,6 +49,8 @@ values
 ("10", "Plano", "5553334444", "123 Street", "USA", "12345", "NA")
 ;
 
+insert into offices values("11", "Plano", "5553334444", "123 Street", null, "TX", "USA", "12345", "NA");
+
 -- This is one way to delete 3 lines (8-10) where cities are Plano:
 select from offices where city = "Plano";
 delete from offices where city = "Plano";
