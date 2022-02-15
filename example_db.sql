@@ -62,20 +62,6 @@ select *
 from address 
 join employee on employee.emp_id = address.fk_emp_id;
 
--- Groupbys
-use classicmodels;
-select * from orders as o;
-
-select status, count(status) as `counter` 
-from orders
-group by status;
-
-select status, count(status) as `counter` 
-from orders
-group by status
-having `counter` >= 6;
-
-select * from orderdetails;
 
 
 
