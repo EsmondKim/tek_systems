@@ -14,12 +14,13 @@ create table employee (
 );
 describe employee;
 
+select * from employee;
+
 insert into employee (`name`, `age`) values("keith", 25);
 insert into employee (`name`, `age`) values("jafer", 1);
 insert into employee (`name`, `age`) values("reema", 45);
 insert into employee (`age`) values(33);
 select * from EMPLOYEE;
-
 
 create table address (
 	address_id int(11) primary key auto_increment,
@@ -32,6 +33,52 @@ create table address (
 );
 select * from address;
 
+-- drop the constraint
+alter table address drop constraint some_name;
+-- add a constraint
+alter table address add constraint some_name foreign key(fk_emp_id) references employee(emp_id) on update cascade on delete set null;
+alter table address add constraint some_name foreign key(fk_emp_id) references employee(emp_id) on update cascade on delete cascade; 
+
 insert into address (`address_street`, `city`, `state`, `fk_emp_id`)
-values ("123 Street", "Plano", "TX", 2);
+values ("123 Street", "Plano", "TX", 2),
+("123 Street", "Plano", "TX", 1),
+("123 Street", "Plano", "TX", 3),
+("123 Street", "Plano", "TX", 4),
+("123 Street", "Plano", "TX", 5),
+("123 Street", "Plano", "TX", 6),
+("123 Street", "Plano", "TX", 7);
 select * from address;
+
+-- Joins
+select *
+from employee 
+join address on employee.emp_id = address.fk_emp_id;
+
+select *
+from employee as e
+left join address as a on e.emp_id = a.fk_emp_id;
+
+select * 
+from address 
+join employee on employee.emp_id = address.fk_emp_id;
+
+-- Groupbys
+use classicmodels;
+select * from orders as o;
+
+select status, count(status) as `counter` 
+from orders
+group by status;
+
+select status, count(status) as `counter` 
+from orders
+group by status
+having `counter` >= 6;
+
+select * from orderdetails;
+
+
+
+
+
+
